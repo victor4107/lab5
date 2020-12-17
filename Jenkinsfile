@@ -1,7 +1,7 @@
 pipeline
 {
     environment {
-        registryCredential = 'dockerhub'
+        registryCredential = 'viktor4747'
         dockerImage = ''
     }
 	options
@@ -40,7 +40,7 @@ pipeline
 			steps
 			{
 				sh 'pip install --no-cache-dir -r ./requirements.txt'
-				sh 'python3 unitTest.py'
+				sh 'python test.py'
 			}
 			post
 			{
@@ -70,7 +70,7 @@ pipeline
                 echo "Application Publishing"
                 checkout scm
                 script {
-                    def customImage = docker.build("utilka/docker-test:${env.BUILD_ID}")
+                    def customImage = docker.build("viktor4747/lab5:${env.BUILD_ID}")
                     docker.withRegistry('',registryCredential )
                     {
                         customImage.push()}
