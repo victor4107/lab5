@@ -27,7 +27,8 @@ if __name__ == "__main__":
     ut.main()#команда яка запускає всі тести із заданого модуля
 
 
-if __name__ == '__main__':
-    unittest.main(testRunner=xmlrunner.XMLTestRunner(output='test-reports'))
-
-
+if __name__ == "__main__":
+    import xmlrunner
+    runner = xmlrunner.XMLTestRunner(output='test-reports')
+    ut.main(testRunner=runner)
+    ut.main()
